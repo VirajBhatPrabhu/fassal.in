@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fassal.in - Precision Farming</title>
+    <style>
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+/* Logo styles */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-weight: bold;
+    font-size: 40px; /* Adjust the font size as needed */
+    color: white;
+    font-family: Georgia, sans-serif;
+}
+.header-description {
+    position: absolute;
+    top: 45%; /* Center vertically */
+    left: 10%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    text-align: left;
+    font-size: 50px;
+    color: white;
+    opacity: 0;
+    animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.special-text {
+    color: #2CF181; /* Change the color to your desired value */
+    font-size: 80px; /* Adjust the font size as needed */
+    font-weight: bold;
+}
+
+
+
+.header {
+    background-image: url('{{ url_for('static', filename='bg_img.jpg') }}');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 500px 0;
+    overflow: hidden;
+    font-family: Georgia, sans-serif;
+    position: relative;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+        /* Add this CSS to move nav links to the top right */
+.nav-links {
+    list-style: none;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
+.nav-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-family: Georgia, sans-serif;
+
+}
+
+      /* Features Section */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 50px 0;
+        }
+          .feature-box {
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        .feature-title {
+            color: #2980b9;
+            margin-bottom: 10px;
+            font-size: 30px;
+            font-family: Georgia, sans-serif;
+        }
+        .feature-desc {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #444;
+            font-family: Georgia, sans-serif;
+        }
+        .feature-button {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: Georgia, sans-serif;
+        }
+        .feature-button:hover {
+            background-color: #219653;
+        }
+
+        .feature {
+            background-color: #f6f6f6;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: calc(25% - 40px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .about p {
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: Georgia, sans-serif;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #f6f6f6;
+        }
+
+        .contact p {
+            font-size: 22px;
+            padding: 10px 0;
+            font-family: Georgia, sans-serif;
+        }
+
+        .contact a {
+            color: #27ae60;
+            font-weight: bold;
+
+
+        }
+
+        /* Footer */
+      .footer {
+    background-color: #27ae60;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+        /* Scroll-to-Top Button */
+        #scroll-top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #27ae60;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+        }
+
+         /* Responsive Styles */
+   /* Your existing styles */
+
+/* Existing CSS rules */
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+
+    /* Header */
+    .header {
+        padding: 150px 0;
+    }
+
+    /* Logo */
+    .logo {
+        left: 50%;
+        top: 30px;
+        transform: translateX(-50%);
+        font-size: 36px;
+    }
+
+    /* Header Description */
+    .header-description {
+        font-size: 30px;
+    }
+
+    /* Nav links */
+    .nav-links {
+        top: 10px;
+        right: 10px;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+
+    /* Features section */
+    .features {
+        padding: 30px 0;
+    }
+
+    .feature {
+        width: calc(50% - 20px);
+    }
+
+    /* About section */
+    .about p {
+        font-size: 18px;
+    }
+
+    /* Contact section */
+    .contact p {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Further adjustments for smaller screens */
+
+    /* Header */
+    .header {
+        padding: 100px 0;
+    }
+
+    /* Logo */
+    .logo {
+        font-size: 30px;
+    }
+
+    /* Header Description */
+    .header-description {
+        font-size: 24px;
+    }
+
+    /* Nav links */
+    .nav-links {
+        top: 10px;
+        right: 10px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    /* Features section */
+    .features {
+        padding: 20px 0;
+    }
+
+    .feature {
+        width: 100%;
+    }
+
+    /* About section */
+    .about p {
+        font-size: 16px;
+    }
+
+    /* Contact section */
+    .contact p {
+        font-size: 16px;
+    }
+}
+
+/* Any additional styles for even smaller screens can be added here */
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+    <nav>
+        <div class="logo">
+            <h1>Fassal.in</h1>
+        </div>
+
+        <div class="header-description">
+            <p><span class="special-text">Revolutionize  farming</span> with Fassal.in  </p>
+            <p>The precision agriculture partner you’ve always dreamt of! </p>
+
+
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#features"> Our Services </a></li>
+            <li><a href="#about"> About Us </a></li>
+            <li><a href="#contact"> Contact </a></li>
+        </ul>
+    </nav>
+</div>
+
+
+
+
+    <section id="features" class="features">
+        <div class="feature">
+            <div class="feature-box">
+                <h2 class="feature-title">Crop Yield Prediction</h2>
+                 <p class="feature-desc">Predict your crop yields accurately with our advanced algorithms.</p>
+                 <button class="feature-button" onclick="location.href='crop_yield.html'">Predict Now</button>
+            </div>
+        </div>
+        <div class="feature">
+           <div class="feature-box">
+            <h2 class="feature-title">Crop Recommendation</h2>
+            <p class="feature-desc">Get personalized crop recommendations based on your soil and climate conditions.</p>
+            <button class="feature-button" onclick="location.href='crop_recommendation.html'">Recommend Now</button>
+        </div>
+        </div>
+
+          <div class="feature">
+           <div class="feature-box">
+            <h2 class="feature-title">Plant Disease Detection</h2>
+            <p class="feature-desc">Detect and diagnose plant diseases early to protect your crops.</p>
+            <button class="feature-button" onclick="location.href='plant_disease_detection.html'">Detect Now</button>
+        </div>
+        </div>
+
+        <div class="feature">
+             <div class="feature-box">
+            <h2 class="feature-title">Fertilizer Recommendation</h2>
+            <p class="feature-desc">Optimize your fertilization strategy with precise fertilizer recommendations.</p>
+            <button class="feature-button" onclick="location.href='fertilizer_recommendation.html'">Recommend Now</button>
+        </div>
+        </div>
+
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>At  Fassal.com Our mission is to revolutionize agriculture through technology and innovation, making farming more efficient and profitable.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us:</p>
+        <a href="mailto:info@fassal.in">info@fassal.in</a>
+         <br></br>
+        <a href="https://www.linkedin.com/in/vallabh-ghodke-261087204">Vallabh Ghodke</a>
+<br></br>
+<a href="https://www.linkedin.com/in/viraj-prabhu-287931247/">Viraj Prabhu</a>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 Fassal.com - Viraj Prabhu and Vallabh Ghodke </p>
+    </footer>
+
+    <script>
+        // Scroll-to-Top Button Functionality
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        for (const link of navLinks) {
+            link.addEventListener('click', smoothScroll);
+        }
+
+        function smoothScroll(event) {
+            event.preventDefault();
+            const targetId = event.currentTarget.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            const targetOffset = targetSection.offsetTop;
+
+            window.scrollTo({
+                top: targetOffset,
+                behavior: 'smooth'
+            });
+        }
+
+        // Scroll-to-Top Button Functionality
+        const scrollTopButton = document.createElement('div');
+        scrollTopButton.id = 'scroll-top-button';
+        scrollTopButton.textContent = '^';
+        document.body.appendChild(scrollTopButton);
+
+        scrollTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopButton.style.display = 'block';
+            } else {
+                scrollTopButton.style.display = 'none';
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const headerDescription = document.querySelector('.header-description');
+    headerDescription.style.animation = 'slideIn 3s forwards';
+});
+
+    </script>
+</body>
+</html>

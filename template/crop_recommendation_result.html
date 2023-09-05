@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Crop Recommendation Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Set minimum height of the viewport */
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #27ae60;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 0 0 50% 50%;
+            width: 100%;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        p {
+            margin: 10px 0;
+            font-size: 25px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto; /* Updated margin to center the container horizontally */
+            margin-top: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            flex-grow: 1; /* Allow the container to grow and push the footer to the bottom */
+        }
+        .emphasis {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #27ae60;
+            color: white;
+            width: 100%;
+            border-radius:  50% 50% 0 0 ;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1> Fassal.in 🌱</h1>
+        <h3></h3>
+    </div>
+    <div class="container">
+        <h1>Crop Recommendation Result</h1>
+        <div class="recommendation">
+            <br></br>
+            <br></br>
+            <p>We Find {{ recommendation | safe }} suitable for your farm.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Fassal.in - Precision Farming</p>
+    </div>
+</body>
+</html>

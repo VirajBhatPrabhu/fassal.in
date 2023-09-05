@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Yield Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #27ae60;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 0 0 50% 50%;
+            width: 100%;
+        }
+        .header h1 {
+            color: white;
+            margin: 0;
+            font-size: 36px;
+        }
+        p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        h1 {
+            color: #2980b9;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .file-input-label {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .file-input-label:hover {
+            background-color: #2980b9;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #219653;
+        }
+        .footer {
+            background-color: #27ae60;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 50% 50% 0 0;
+            width: 100%;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+          .prediction-form {
+            display: grid;
+            gap: 20px;
+            text-align: left;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .label {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .predict-button {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .predict-button:hover {
+            background-color: #219653;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Fassal.in 🌱</h1>
+    </div>
+   <div class="container">
+        <h1>Crop Yield Prediction</h1>
+        <form class="prediction-form" action="crop_yield.html" method="post">
+            <div class="input-group">
+                <label for="state" class="label">State:</label>
+                <input type="text" id="state" name="state" class="input" required >
+            </div>
+            <div class="input-group">
+                <label for="district" class="label">District:</label>
+                <input type="text" id="district" name="district" class="input" required>
+            </div>
+            <div class="input-group">
+                <label for="crop" class="label">Crop:</label>
+                <input type="text" id="crop" name="crop" class="input" required>
+            </div>
+
+            <div class="input-group">
+                <label for="season" class="label">Season:</label>
+                <input type="text" id="season" name="season" class="input" required>
+            </div>
+            <div class="input-group">
+                <label for="area" class="label">Area:</label>
+                <input type="number" id="area" name="area" class="input" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label for="nitrogen" class="label">Nitrogen:</label>
+                <input type="number" id="nitrogen" name="nitrogen" class="input" step="0.01" required>
+            </div>
+             <div class="input-group">
+                <label for="phosphorus" class="label">Phosphorus:</label>
+                <input type="number" id="potassium" name="potassium" class="input" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label for="potassium" class="label">Potassium:</label>
+                <input type="number" id="potassium" name="potassium" class="input" step="0.01" required>
+            </div>
+            <button type="submit" class="predict-button">Predict Yield</button>
+        </form>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Fassal.in - Viraj and Vallabh</p>
+    </div>
+</body>
+</html>
